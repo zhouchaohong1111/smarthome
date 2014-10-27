@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <string name="device_name">设备名字测试</string>
+        
+    <string name="app_name">智能家居</string>
+    <string name="action_settings">设置</string>
+    <string name="location_control">位置控制</string>
+       <string name="centrol_control">中心控制</string>
+    <string name="function_control">功能控制</string>
+
+    
+    <string name="function_not_implemented">功能尚未实现</string>
+    <string name="not_support_modify">功能尚未实现,暂不支持修改状态</string>
+    <!-- 位置列表 -->
+    <string-array name="locations">
+        <item >mainbedroom</item>
+        <item >hostroom</item>
+        <item >kitchen</item>
+        <item >washroom</item>
+    </string-array>
+    <string name="mainbedroom">卧室</string>
+    <string name="hostroom">客厅</string>
+    <string name="dinningroom">餐厅</string>
+    <string name="studyroom">书房</string>
+    <string name="kitchen">厨房</string>
+    <string name="washroom">洗手间</string>
+    
+    <!-- 场景类表 -->
+    <string-array name="centers">
+        <item >sleep</item>
+        <item >meeting</item>
+        <item >cinema</item>
+        <item >disco</item>
+    </string-array>
+    <string name="sleep">睡眠</string>
+    <string name="meeting">会客</string>
+    <string name="cinema">影院</string>
+    <string name="disco">迪斯科</string>
+    
+    <!-- 中心列表 -->
+    <string-array name="functions">
+        <item >lights</item>
+        <item >air conditioner</item>
+        <item >tvs</item>
+        <item >fridges</item>
+    </string-array>
+    <string name="lights">灯具</string>
+    <string name="curtain">窗帘</string>
+    <string name="socket">插座</string>
+    <string name="air_conditioners">空调</string>
+    <string name="tvs">电视</string>
+    <string name="fridges">冰箱</string>
+    <string name="washer">洗衣机</string>
+    
+    
+    <!-- 功能列表 -->
+    <string name="scene">场景</string>
+    <string name="settings">设置</string>
+    <string name="timer">定时</string>
+    <string name="synchronize">同步</string>
+    <string name="monitor">监控</string>
+    
+	<string name="device_status">设备状态</string>
+
+</resources>

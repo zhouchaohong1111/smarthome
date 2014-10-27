@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true" >
+        </TabWidget>
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+<!-- 
+            <AnalogClock
+                android:id="@+id/widget31"
+                android:layout_marginTop="350dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal" >
+            </AnalogClock>
+			 -->
+			<!--  
+            <DigitalClock
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                >
+            </DigitalClock>
+           -->
+        </FrameLayout>
+    </RelativeLayout>
+
+</TabHost>
