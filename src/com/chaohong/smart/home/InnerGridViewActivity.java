@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import com.chaohong.smart.home.data.Device;
 import com.chaohong.smart.home.data.Entrance;
+import com.umeng.fb.FeedbackAgent;
 import com.umeng.update.UmengUpdateAgent;
+import com.umeng.update.UpdateConfig;
 
 public abstract class InnerGridViewActivity extends Activity implements GridView.OnItemClickListener {
 	public static String TAG = "InnerGridViewActivity";
@@ -24,6 +26,7 @@ public abstract class InnerGridViewActivity extends Activity implements GridView
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		UpdateConfig.setDebug(true);
 		initViews();
 	}
 	
@@ -52,17 +55,24 @@ public abstract class InnerGridViewActivity extends Activity implements GridView
 				i.putExtra("entrance_type", entrance.getType());
 				i.putExtra("sub_type", entrance.getSubType());
 				startActivity(i);
-			} else if( entrance.getType() == Entrance.Type.FUNCTION 
-					&& entrance.getFunctionType() == Device.FuntionType.SCENE) {
-				Intent i = new Intent(getBaseContext(), SceneControlActivity.class);
-				startActivity(i);
-			}  else if( entrance.getType() == Entrance.Type.FUNCTION 
-					&& entrance.getFunctionType() == Device.FuntionType.CHECK_UPDATE) {
-				UmengUpdateAgent.forceUpdate(getBaseContext()); //检查更新
-			}
-			
-			else {
-				Toast.makeText(getBaseContext(), R.string.function_not_implemented, Toast.LENGTH_SHORT).show();
+			} else if( entrance.getType() == Entrance.Type.FUNCTION ) {
+				switch (entrance.getFunctionType()) {
+				case Device.FuntionType.SCENE:
+					Intent i = new Intent(getBaseContext(), SceneControlActivity.class);
+					startActivity(i);
+					break;
+				case  Device.FuntionType.CHECK_UPDATE:
+					UmengUpdateAgent.forceUpdate(getApplicationContext()); //检查更新
+					break;
+				case Device.FuntionType.FEEDBACK:
+					FeedbackAgent agent = new FeedbackAgent(this);
+					agent.startFeedbackActivity();
+					break;
+				default:
+					break;
+				}
+			} else {
+				Toast.makeText(this, R.string.function_not_implemented, Toast.LENGTH_SHORT).show();
 			}
 		}
 	}

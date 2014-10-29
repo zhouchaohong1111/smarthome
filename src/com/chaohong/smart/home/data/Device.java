@@ -43,6 +43,7 @@ public class Device {
 		public static final int SYNCHRONIZE = 4;		//同步
 		public static final int SETTINGS = 5;			//设置
 		public static final int CHECK_UPDATE = 6;		//检查更新
+		public static final int FEEDBACK = 7;		//用户反馈
 
 	}
 	

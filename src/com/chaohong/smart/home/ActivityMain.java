@@ -1,5 +1,7 @@
 package com.chaohong.smart.home;
 
+import com.chaohong.smart.home.util.PhoneInfo;
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -44,6 +46,7 @@ public class ActivityMain extends TabActivity {
 			}
 		};
 
+		PhoneInfo.getDeviceInfo(this);
 	}
 
 	/**
