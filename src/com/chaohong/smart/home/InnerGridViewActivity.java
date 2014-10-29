@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.chaohong.smart.home.data.Device;
 import com.chaohong.smart.home.data.Entrance;
+import com.umeng.update.UmengUpdateAgent;
 
 public abstract class InnerGridViewActivity extends Activity implements GridView.OnItemClickListener {
 	public static String TAG = "InnerGridViewActivity";
@@ -55,6 +56,9 @@ public abstract class InnerGridViewActivity extends Activity implements GridView
 					&& entrance.getFunctionType() == Device.FuntionType.SCENE) {
 				Intent i = new Intent(getBaseContext(), SceneControlActivity.class);
 				startActivity(i);
+			}  else if( entrance.getType() == Entrance.Type.FUNCTION 
+					&& entrance.getFunctionType() == Device.FuntionType.CHECK_UPDATE) {
+				UmengUpdateAgent.forceUpdate(getBaseContext()); //检查更新
 			}
 			
 			else {

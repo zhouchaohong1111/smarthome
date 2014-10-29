@@ -20,6 +20,7 @@ public class FunctionControlActivity extends InnerGridViewActivity {
 		entrances.add(new Entrance(R.string.monitor, R.drawable.function_monitor, entraceType));
 		entrances.add(new Entrance(R.string.synchronize, R.drawable.function_synchronize, entraceType));
 		entrances.add(new Entrance(R.string.settings, R.drawable.function_settings, entraceType));
+		entrances.add(new Entrance(R.string.check_update, R.drawable.function_check_update, entraceType));
 		return entrances;
 	}
 

@@ -42,6 +42,7 @@ public class Device {
 		public static final int MONITOR = 3;			//监控
 		public static final int SYNCHRONIZE = 4;		//同步
 		public static final int SETTINGS = 5;			//设置
+		public static final int CHECK_UPDATE = 6;		//检查更新
 
 	}
 	
