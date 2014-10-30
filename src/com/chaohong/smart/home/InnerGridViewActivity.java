@@ -10,13 +10,14 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.chaohong.common.HostActivity;
 import com.chaohong.smart.home.data.Device;
 import com.chaohong.smart.home.data.Entrance;
 import com.umeng.fb.FeedbackAgent;
 import com.umeng.update.UmengUpdateAgent;
 import com.umeng.update.UpdateConfig;
 
-public abstract class InnerGridViewActivity extends Activity implements GridView.OnItemClickListener {
+public abstract class InnerGridViewActivity extends HostActivity implements GridView.OnItemClickListener {
 	public static String TAG = "InnerGridViewActivity";
 	private GridView mGridView = null;
 	private List<Entrance> mEntrances = null;

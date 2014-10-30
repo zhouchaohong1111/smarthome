@@ -2,6 +2,7 @@ package com.chaohong.smart.home;
 
 import java.util.List;
 
+import com.chaohong.common.HostActivity;
 import com.chaohong.smart.home.data.AllDevices;
 import com.chaohong.smart.home.data.Device;
 import com.chaohong.smart.home.data.Entrance;
@@ -19,7 +20,7 @@ import android.widget.Toast;
  * @author zhouchaohong
  *
  */
-public class DeviceDetailActivity extends Activity {
+public class DeviceDetailActivity extends HostActivity {
 
 	private ListView mListView = null;
 	private List<Device> mDevices = null;
