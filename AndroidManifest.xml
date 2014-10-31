@@ -21,6 +21,7 @@
     </uses-permission>
 
     <application
+        android:name="HostApplication"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -70,6 +71,14 @@
         <activity android:name="com.chaohong.smart.home.SceneControlActivity" >
         </activity>
 
+         <!-- 崩溃栈弹窗 -->   
+        <activity android:name="org.acra.CrashReportDialog"
+        android:theme="@android:style/Theme.Dialog"
+        android:launchMode="singleInstance"
+        android:excludeFromRecents="true"
+        android:finishOnTaskLaunch="true" />
+        <!-- 崩溃栈弹窗 -->     
+       
         <!-- 友盟-自动更新 -->
         <service
             android:name="com.umeng.update.net.DownloadingService"
@@ -81,6 +90,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" >
         </activity>
         <!-- 友盟-自动更新 -->
+        
         <!-- 友盟-用户反馈 -->
         <activity
             android:name="com.umeng.fb.ConversationActivity"
@@ -88,7 +98,6 @@
         <activity
             android:name="com.umeng.fb.ContactActivity"
             android:theme="@android:style/Theme.NoTitleBar" />
-
         <!-- 友盟-用户反馈-->
 
 	    <meta-data

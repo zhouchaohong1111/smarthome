@@ -62,6 +62,11 @@ public abstract class InnerGridViewActivity extends HostActivity implements Grid
 					Intent i = new Intent(getBaseContext(), SceneControlActivity.class);
 					startActivity(i);
 					break;
+				case Device.FuntionType.TIMER:
+					if( true ) {
+						throw new NullPointerException();
+					}
+					break;
 				case  Device.FuntionType.CHECK_UPDATE:
 					UmengUpdateAgent.forceUpdate(getApplicationContext()); //检查更新
 					break;
