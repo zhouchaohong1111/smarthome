@@ -19,6 +19,11 @@
     </uses-permission>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
     </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    
 
     <application
         android:name="HostApplication"
@@ -30,13 +35,13 @@
             android:name="com.chaohong.smart.home.ActivityMain"
             android:label="@string/app_name" >
 
-            <!--
+            
                   <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
+           
 
         </activity>
         <activity android:name="com.chaohong.smart.home.LocationControlActivity" >
@@ -62,11 +67,11 @@
         <activity android:name="com.chaohong.smart.home.CenterControlActivity" >
         </activity>
         <activity android:name="com.chaohong.smart.home.FunctionControlActivity" >
-            <intent-filter>
+<!--             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter> -->
         </activity>
         <activity android:name="com.chaohong.smart.home.SceneControlActivity" >
         </activity>
@@ -100,6 +105,61 @@
             android:theme="@android:style/Theme.NoTitleBar" />
         <!-- 友盟-用户反馈-->
 
+
+     
+		<!-- 友盟-消息推送 -->
+		<receiver
+		    android:name="com.umeng.message.NotificationProxyBroadcastReceiver"
+		    android:exported="false" >
+		</receiver>
+		<receiver android:name="com.umeng.message.RegistrationReceiver" >
+		    <intent-filter>
+		        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="android.intent.action.PACKAGE_REMOVED" />
+		
+		        <data android:scheme="package" />
+		    </intent-filter>
+		</receiver>
+		<receiver android:name="com.umeng.message.UmengBroadcastReceiver" >
+		    <intent-filter>
+		        <action android:name="org.agoo.android.intent.action.RECEIVE" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="com.chaohong.smart.home.intent.action.COMMAND" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="org.agoo.android.intent.action.RE_ELECTION_V2" />
+		    </intent-filter>
+		</receiver>
+		<service
+		    android:name="com.umeng.message.UmengService"
+		    android:exported="true"
+		    android:process=":umengService_v1" >
+		    <intent-filter>
+		        <action android:name="com.chaohong.smart.home.intent.action.START" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="com.chaohong.smart.home.intent.action.COCKROACH" />
+		    </intent-filter>
+		    <intent-filter>
+		        <action android:name="org.agoo.android.intent.action.PING" />
+		    </intent-filter>
+		</service>
+		<service
+		    android:name="org.android.agoo.service.ElectionService"
+		    android:exported="true"
+		    android:process=":umengService_v1" >
+		    <intent-filter>
+		        <action android:name="org.agoo.android.intent.action.ELECTION_V2" />
+		    </intent-filter>
+		</service>
+		<service android:name="com.umeng.message.UmengIntentService" />
+		<!-- V1.3.0添加的service，负责下载通知的资源 -->
+		<service android:name="com.umeng.message.UmengDownloadResourceService" />
+		<!-- 友盟-消息推送 -->
+		
 	    <meta-data
 	        android:name="UMENG_APPKEY"
 	        android:value="545071e1fd98c5a67d01f246" />

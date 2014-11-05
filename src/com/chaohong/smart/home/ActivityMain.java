@@ -1,6 +1,8 @@
 package com.chaohong.smart.home;
 
 import com.chaohong.smart.home.util.PhoneInfo;
+import com.umeng.message.PushAgent;
+import com.umeng.message.UmengRegistrar;
 
 import android.app.TabActivity;
 import android.content.Intent;
@@ -33,6 +35,11 @@ public class ActivityMain extends TabActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		//友盟消息推送
+		PushAgent mPushAgent = PushAgent.getInstance(this);
+		mPushAgent.enable();
+		
 		super.setContentView(R.layout.activity_main);
 		this.initTableHost();
 
@@ -47,6 +54,11 @@ public class ActivityMain extends TabActivity {
 		};
 
 		PhoneInfo.getDeviceInfo(this);
+		
+		String device_token = UmengRegistrar.getRegistrationId(this);
+		if( device_token != null) {
+			Log.v("ActivityMain", device_token );
+		}
 	}
 
 	/**

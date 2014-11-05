@@ -1,6 +1,7 @@
 package com.chaohong.common;
 
 import com.umeng.analytics.MobclickAgent;
+import com.umeng.message.PushAgent;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ public class HostActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+		//消息推送监控应用启动
+		PushAgent.getInstance(this).onAppStart();
 	}
 	
 	@Override
